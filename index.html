@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PengPei — Academic Homepage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #FAFAFA;
+  --fg: #09090B;
+  --muted: #64748B;
+  --muted-bg: #E8ECF0;
+  --accent: #2563EB;
+  --card: #FFFFFF;
+  --border: #E4E4E7;
+  --footer-bg: #09090B;
+  --contact-bg: #F8FAFC;
+  --card-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --pub-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 1440px;
+  max-width: 100%;
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+/* ========== Header ========== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 80px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: 'Crimson Pro', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 28px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav a:hover { color: var(--accent); }
+
+/* ========== Hero ========== */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 120px;
+  gap: 32px;
+  background: linear-gradient(180deg,
+    rgba(242,247,255,1) 0%,
+    rgba(247,250,255,0.5) 50%,
+    rgba(255,255,255,0) 100%
+  );
+}
+
+.hero-name {
+  font-family: 'Crimson Pro', serif;
+  font-size: 72px;
+  font-weight: 700;
+  color: var(--fg);
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 24px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.hero-institution {
+  font-size: 18px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.hero-tags {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: var(--muted-bg);
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.hero-accent {
+  width: 80px;
+  height: 4px;
+  background: var(--accent);
+}
+
+/* ========== Sections ========== */
+.section {
+  padding: 80px 120px;
+}
+
+.section-header {
+  font-family: 'Crimson Pro', serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 600px;
+  margin-bottom: 48px;
+  line-height: 1.6;
+}
+
+/* ========== Research Cards ========== */
+.cards-row {
+  display: flex;
+  gap: 32px;
+}
+
+.card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 32px 28px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+  gap: 16px;
+  position: relative;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 32px;
+  width: 48px;
+  height: 3px;
+  background: var(--accent);
+}
+
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--accent);
+  color: white;
+  font-size: 24px;
+}
+
+.card-title {
+  font-family: 'Crimson Pro', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #18181B;
+}
+
+.card-desc {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ========== Publications ========== */
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pub-item {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 28px;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--pub-shadow);
+}
+
+.pub-title {
+  font-family: 'Crimson Pro', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #18181B;
+}
+
+.pub-authors {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.pub-venue {
+  font-size: 14px;
+  color: var(--accent);
+}
+
+/* ========== Contact ========== */
+.contact {
+  padding: 100px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: var(--contact-bg);
+}
+
+.contact-desc {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.email-frame {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background: var(--card);
+}
+
+.email-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--accent);
+  color: white;
+  font-size: 14px;
+}
+
+.email-text {
+  font-size: 18px;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.email-text:hover { text-decoration: underline; }
+
+/* ========== Footer ========== */
+.footer {
+  padding: 40px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  background: var(--footer-bg);
+}
+
+.footer-text {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.footer-sub {
+  font-size: 14px;
+  color: #52525B;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 1440px) {
+  .wrapper { width: 100%; }
+}
+
+@media (max-width: 900px) {
+  .header { padding: 0 24px; flex-direction: column; height: auto; gap: 8px; padding: 16px 24px; }
+  .nav { gap: 16px; font-size: 14px; flex-wrap: wrap; justify-content: center; }
+  .hero { padding: 60px 24px; }
+  .hero-name { font-size: 48px; }
+  .hero-title { font-size: 20px; }
+  .section { padding: 60px 24px; }
+  .cards-row { flex-direction: column; }
+  .contact { padding: 60px 24px; }
+  .footer { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- ===== Header ===== -->
+  <header class="header">
+    <a href="#" class="logo">PengPei</a>
+    <nav class="nav">
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <h1 class="hero-name">PengPei</h1>
+    <p class="hero-title">PhD Candidate in Nuclear Science and Technology</p>
+    <p class="hero-institution">哈尔滨工程大学 · 本博连读</p>
+    <div class="hero-tags">
+      <span class="tag">辐射探测</span>
+      <span class="tag">屏蔽防护</span>
+      <span class="tag">蒙卡仿真计算</span>
+    </div>
+    <div class="hero-accent"></div>
+  </section>
+
+  <!-- ===== Research Interests ===== -->
+  <section class="section" id="research">
+    <h2 class="section-header">Research Interests</h2>
+    <p class="section-desc">
+      My research focuses on nuclear radiation detection, shielding protection,
+      and Monte Carlo simulation methods for nuclear engineering applications.
+    </p>
+    <div class="cards-row">
+      <div class="card">
+        <div class="card-icon">☆</div>
+        <h3 class="card-title">辐射探测 Radiometry</h3>
+        <p class="card-desc">
+          Research on advanced radiation detection techniques including
+          scintillation detectors, semiconductor detectors, and gamma
+          spectroscopy for nuclear safety and radiation monitoring applications.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-icon">☆</div>
+        <h3 class="card-title">屏蔽防护 Shielding</h3>
+        <p class="card-desc">
+          Design and optimization of radiation shielding materials and
+          structures for nuclear reactors, medical facilities, and space
+          applications using advanced simulation and experimental validation.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-icon">☆</div>
+        <h3 class="card-title">蒙卡仿真 Monte Carlo</h3>
+        <p class="card-desc">
+          Monte Carlo particle transport simulation using MCNP, Geant4, and
+          FLUKA for nuclear reactor physics, radiation dosimetry, and shielding
+          design optimization.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Publications ===== -->
+  <section class="section" id="publications">
+    <h2 class="section-header">Publications</h2>
+    <p class="section-desc">
+      Selected publications in peer-reviewed journals and conferences.
+    </p>
+    <div class="pub-list">
+      <div class="pub-item">
+        <p class="pub-title">[Paper Title Placeholder — Click to edit]</p>
+        <p class="pub-authors">Peng Pei, et al.</p>
+        <p class="pub-venue">Journal / Conference Name · 2026</p>
+      </div>
+      <div class="pub-item">
+        <p class="pub-title">[Paper Title Placeholder — Click to edit]</p>
+        <p class="pub-authors">Peng Pei, et al.</p>
+        <p class="pub-venue">Journal / Conference Name · 2026</p>
+      </div>
+      <div class="pub-item">
+        <p class="pub-title">[Paper Title Placeholder — Click to edit]</p>
+        <p class="pub-authors">Peng Pei, et al.</p>
+        <p class="pub-venue">Journal / Conference Name · 2026</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section class="contact" id="contact">
+    <h2 class="section-header">Get in Touch</h2>
+    <p class="contact-desc">
+      Interested in collaboration, discussion, or just want to say hello?
+    </p>
+    <div class="email-frame">
+      <span class="email-icon">✉</span>
+      <a href="mailto:heu_pengpei@foxmail.com" class="email-text">heu_pengpei@foxmail.com</a>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <p class="footer-text">PengPei · 2026</p>
+    <p class="footer-sub">哈尔滨工程大学 · 核科学与技术学院</p>
+  </footer>
+
+</div>
+</body>
+</html>
